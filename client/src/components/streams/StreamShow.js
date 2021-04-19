@@ -21,8 +21,8 @@ class StreamShow extends React.Component {
     this.buildPlayer();
   }
 
-  componentWillMount() {
-    this.player.destroy();
+  componentWillUnmount() {
+    //this.player.destroy();
   }
 
   buildPlayer() {
@@ -44,9 +44,7 @@ class StreamShow extends React.Component {
     if (!this.props.stream) {
       return <div>Loading...</div>;
     }
-
     const { title, description } = this.props.stream;
-
     return (
       <div>
         <video ref={this.videoRef} style={{ width: "100%" }} controls={true} />
